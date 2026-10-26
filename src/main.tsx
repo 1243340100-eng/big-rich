@@ -1,0 +1,22 @@
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import App from './App';
+import './style.css';
+import './mobile.css';
+import './theme.css';
+import './theme-light.css';
+import './market/market.css';
+import './floating.css';
+import './game/gameplay.css';
+import './game/event-banner.css';
+import './game/city-event-draw.css';
+import './game/settlement-receipt.css';
+import './game/victory.css';
+import './casino/casino.css';
+import './mobile-input.css';
+import './market/dashboard.css';
+import './mobile-layout.css';
+import './entry-guide.css';
+import './game/chat-notice.css';
+createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+

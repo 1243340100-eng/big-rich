@@ -1,0 +1,572 @@
+.settlement-bill {
+  position: absolute;
+  z-index: 39;
+  top: 92px;
+  left: 18px;
+  width: 312px;
+  max-width: calc(100% - 36px);
+  pointer-events: auto;
+  animation: billEnter .5s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.bill-paper {
+  position: relative;
+  padding: 18px 18px 20px;
+  color: #314034;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, .45), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(111, 100, 70, .035) 0 1px, transparent 1px 5px),
+    #fbf4e5;
+  border: 1px solid #cbb997;
+  box-shadow: 0 18px 52px rgba(31, 22, 10, .3), 0 2px 8px rgba(31, 22, 10, .12);
+}
+
+.bill-paper::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(160, 133, 77, .32);
+  pointer-events: none;
+}
+
+.bill-paper::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  left: 0;
+  height: 8px;
+  background: radial-gradient(circle at 6px 0, transparent 5px, #fbf4e5 5.5px) repeat-x;
+  background-size: 12px 8px;
+}
+
+.bill-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bill-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.bill-toggle,
+.bill-compact-expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #6f765f;
+  background: #f4ead8;
+  border: 1px solid #d2c1a4;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.bill-toggle {
+  min-height: 28px;
+  padding: 0 9px;
+  font-size: 9px;
+}
+
+.bill-toggle:hover,
+.bill-compact-expand:hover {
+  color: #314034;
+  background: #eee0c8;
+}
+
+.bill-brand {
+  color: #a08045;
+  font-size: 7.5px;
+  letter-spacing: .18em;
+}
+
+.bill-head h2 {
+  margin: 8px 0 0;
+  color: #283829;
+  font-family: Georgia, 'Noto Serif SC', 'Songti SC', serif;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+.bill-head p {
+  margin: 5px 0 0;
+  color: #857d69;
+  font-size: 9.5px;
+  letter-spacing: .04em;
+}
+
+.bill-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: #948b78;
+  background: transparent;
+  border: 1px solid #d4c5aa;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.bill-compact-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 9px 11px;
+  background: #f1e4ca;
+  border-top: 2px solid #b28645;
+  border-bottom: 2px solid #b28645;
+}
+
+.bill-compact-total>span {
+  color: #8d6c3b;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.bill-compact-total strong {
+  color: #354237;
+  font-family: var(--font-num);
+  font-size: 22px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.bill-compact-total strong small {
+  color: #8d8066;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.settlement-bill.is-positive .bill-compact-total strong {
+  color: #2f7d5b;
+}
+
+.settlement-bill.is-negative .bill-compact-total strong {
+  color: #a04b34;
+}
+
+.bill-compact-balance {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 9px;
+  color: #8b816c;
+  font-size: 9px;
+}
+
+.bill-compact-balance b {
+  color: #4f5445;
+  font-family: var(--font-num);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.bill-compact-expand {
+  width: 100%;
+  min-height: 34px;
+  margin-top: 10px;
+  padding: 0 10px;
+  font-size: 10px;
+}
+
+.bill-close:hover {
+  color: #314034;
+  background: #f2e6d0;
+}
+
+.bill-rule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 13px 0 7px;
+  color: #b28645;
+}
+
+.bill-rule::before,
+.bill-rule::after {
+  content: '';
+  flex: 1;
+  border-top: 1px dashed #cdbb9b;
+}
+
+.bill-rule span {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: #a47c3e;
+  font-family: var(--font-num);
+  font-size: 10px;
+  border: 1px solid #cdbb9b;
+  border-radius: 50%;
+}
+
+.bill-lines {
+  display: grid;
+  margin: 0;
+}
+
+.bill-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px dotted #d8c9ae;
+  animation: billLine .3s both;
+}
+
+.bill-line:nth-child(2) { animation-delay: .06s; }
+.bill-line:nth-child(3) { animation-delay: .12s; }
+.bill-line:nth-child(4) { animation-delay: .18s; }
+.bill-line:nth-child(5) { animation-delay: .24s; }
+
+.bill-line dt {
+  color: #777460;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.bill-line dt small {
+  margin-left: 4px;
+  color: #a29680;
+  font-size: 8px;
+}
+
+.bill-line dd {
+  margin: 0;
+  color: #354237;
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bill-line.out dd {
+  color: #a04b34;
+}
+
+.bill-line.in dd {
+  color: #2f7d5b;
+}
+
+.bill-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 13px;
+  padding: 10px 11px;
+  background: #f1e4ca;
+  border-top: 2px solid #b28645;
+  border-bottom: 2px solid #b28645;
+}
+
+.bill-total > span {
+  color: #8d6c3b;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.bill-total strong {
+  color: #354237;
+  font-family: var(--font-num);
+  font-size: 23px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.bill-total strong small {
+  color: #8d8066;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.settlement-bill.is-positive .bill-total strong {
+  color: #2f7d5b;
+}
+
+.settlement-bill.is-negative .bill-total strong {
+  color: #a04b34;
+}
+
+.bill-balance {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 9px;
+  color: #8b816c;
+  font-size: 8.5px;
+}
+
+.bill-balance b {
+  color: #4f5445;
+  font-family: var(--font-num);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.bill-stamp {
+  position: absolute;
+  top: 106px;
+  right: 15px;
+  padding: 3px 7px;
+  color: #2f7d5b;
+  font-size: 8.5px;
+  letter-spacing: .12em;
+  border: 2px solid #2f7d5b;
+  border-radius: 3px;
+  opacity: .34;
+  transform: rotate(-12deg);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: billStamp .34s .55s both;
+}
+
+.bill-stamp.is-negative {
+  color: #a04b34;
+  border-color: #a04b34;
+}
+
+.bill-stamp.is-neutral {
+  color: #8d8066;
+  border-color: #8d8066;
+}
+
+.bill-barcode {
+  height: 22px;
+  margin-top: 12px;
+  background: repeating-linear-gradient(90deg, #4a4b3e 0 2px, transparent 2px 4px, #4a4b3e 4px 5px, transparent 5px 8px);
+  opacity: .38;
+}
+
+.bill-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 7px;
+  color: #9d927d;
+  font-size: 7px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.money-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  overflow: hidden;
+  pointer-events: none;
+  animation: moneyRainFade 5.2s ease both;
+}
+
+.money-rain.is-negative {
+  background: radial-gradient(ellipse at 50% 0%, rgba(160, 60, 45, .13), transparent 48%);
+}
+
+.money-note {
+  position: absolute;
+  top: -64px;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 28px;
+  color: #2f4a39;
+  font-family: var(--font-num);
+  font-size: 11px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .55), transparent 38%),
+    linear-gradient(120deg, #dce8c6, #a9c49b 55%, #c8d9b2);
+  border: 1px solid #7f9d72;
+  border-radius: 3px;
+  box-shadow: 0 3px 9px rgba(21, 40, 28, .22);
+  animation-name: moneyFall;
+  animation-timing-function: cubic-bezier(.2, .65, .35, 1);
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+.money-note::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(47, 74, 57, .35);
+  border-radius: 50%;
+}
+
+.money-note b {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.debt-note {
+  position: absolute;
+  top: -64px;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 36px;
+  color: #c14a3e;
+  font-family: var(--font-num);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -.08em;
+  text-shadow: 0 2px 8px rgba(60, 12, 8, .4), 0 0 16px rgba(193, 74, 62, .42);
+  animation-name: moneyFall;
+  animation-timing-function: cubic-bezier(.2, .65, .35, 1);
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+.debt-note b {
+  font-weight: 700;
+}
+
+@keyframes billEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(-18px, -8px, 0) rotate(-.6deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+@keyframes billLine {
+  from {
+    opacity: 0;
+    translate: 0 5px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes billStamp {
+  from {
+    opacity: 0;
+    transform: scale(1.35) rotate(-12deg);
+  }
+  to {
+    opacity: .34;
+    transform: scale(1) rotate(-12deg);
+  }
+}
+
+@keyframes moneyFall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -12vh, 0) rotate(var(--rot)) scale(var(--scale));
+  }
+  8%, 82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift), 112vh, 0) rotate(calc(var(--rot) + 260deg)) scale(var(--scale));
+  }
+}
+
+@keyframes moneyRainFade {
+  0%, 78% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (max-width: 759px) {
+  .settlement-bill {
+    top: 88px;
+    left: 10px;
+    width: min(318px, calc(100% - 20px));
+    max-height: calc(100% - 106px);
+    overflow: auto;
+  }
+
+  .settlement-bill.is-compact {
+    width: min(258px, calc(100% - 20px));
+  }
+
+  .bill-paper {
+    padding: 15px 15px 17px;
+  }
+
+  .settlement-bill.is-compact .bill-paper {
+    padding: 12px 14px 14px;
+  }
+
+  .bill-head h2 {
+    font-size: 20px;
+  }
+
+  .settlement-bill.is-compact .bill-brand {
+    display: none;
+  }
+
+  .settlement-bill.is-compact .bill-head h2 {
+    display: none;
+  }
+
+  .settlement-bill.is-compact .bill-head p {
+    margin-top: 1px;
+    color: #6f7864;
+    font-size: 10px;
+  }
+
+  .bill-total strong {
+    font-size: 20px;
+  }
+
+  .bill-stamp {
+    top: 94px;
+    right: 13px;
+  }
+
+  .bill-toggle {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .settlement-bill.is-compact .bill-close {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.reduce-motion .settlement-bill,
+.reduce-motion .bill-line,
+.reduce-motion .bill-stamp,
+.reduce-motion .money-rain {
+  animation: none;
+}
+
+.reduce-motion .money-rain {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settlement-bill,
+  .bill-line,
+  .bill-stamp,
+  .money-rain {
+    animation: none;
+  }
+
+  .money-rain {
+    display: none;
+  }
+}

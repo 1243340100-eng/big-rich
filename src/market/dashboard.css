@@ -1,0 +1,55 @@
+.right-rail.floating-drawer.market-drawer{width:min(720px,calc(100vw - 28px))}
+.right-rail.floating-drawer.market-drawer .portfolio-head{padding:8px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.right-rail.floating-drawer.market-drawer .portfolio-head h3{margin:0;font-size:23px}
+.market-drawer .portfolio-head>.credit-badge{position:static;order:3}
+.market-drawer .portfolio-head>span:not(.credit-badge){display:none}
+.right-rail.market-drawer .portfolio-head .cash-line{position:static;margin:0;padding:0;font-size:11px}
+.market-workspace{display:grid;grid-template-columns:minmax(0,1fr) 154px;gap:18px;align-items:stretch}
+.market-main-chart{min-width:0}
+.market-selected-head{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.market-selected-head h4{margin:0 0 4px;font-size:18px;color:var(--market-flat)}
+.market-selected-head small{font-size:10px;color:var(--market-muted)}
+.market-selected-head>div:last-child{text-align:right}
+.market-selected-head b{font:600 22px var(--font-num)}
+.market-selected-head span{display:block;font:12px var(--font-num);margin-top:4px}
+.market-dashboard .stock-range-tabs{margin:12px 0 8px;gap:5px}
+.market-dashboard .stock-range-tabs button{font-size:11px;padding:6px 9px;border-radius:5px}
+.market-dashboard .quote-chart-detail .stock-chart{height:clamp(150px,25dvh,250px)}
+.market-dashboard .quote-chart-detail .market-baseline-label{font-size:10px}
+.market-dashboard .quote-chart-detail .stock-event-marker{font-size:11px}
+.market-watchlist{border-left:1px solid var(--market-grid);padding-left:12px;display:flex;flex-direction:column;gap:5px}
+.market-watchlist-label{font-size:10px;color:var(--market-muted);padding:0 6px 4px}
+.market-watch-item{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;flex:1;min-height:42px;padding:7px 9px;border:1px solid transparent;border-radius:8px;color:var(--market-flat);background:transparent;cursor:pointer;text-align:left}
+.market-watch-item strong{font-size:12px;font-weight:600}
+.market-watch-item span{font:11px var(--font-num)}
+.market-watch-item:hover{background:var(--market-order)}
+.market-watch-item[aria-pressed=true]{background:var(--market-order);border-color:var(--market-baseline);box-shadow:inset 3px 0 var(--brass)}
+.market-watch-item:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.market-selected-summary{border-top:1px solid var(--market-grid);margin-top:10px;padding-top:10px}
+.market-dashboard .stock-holding{font-size:11px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.market-dashboard .stock-actions{display:flex;gap:8px;margin-top:10px}
+.market-dashboard .stock-actions button{flex:1;min-height:35px;font-size:11px;justify-content:center;white-space:nowrap}
+.market-dashboard-note{font-size:10px;color:var(--market-muted);margin:10px 0 0;line-height:1.5}
+@media(max-width:759px){
+ .right-rail.floating-drawer.market-drawer{width:calc(100vw - 16px);height:calc(100dvh - 74px)}
+ .right-rail.floating-drawer.market-drawer .panel-content{padding:12px}
+ .right-rail.floating-drawer.market-drawer .portfolio-head{padding:8px 12px;gap:8px}
+ .market-drawer .portfolio-head>.credit-badge{display:none}
+ .market-dashboard-note{display:none}
+ .market-workspace{grid-template-columns:minmax(0,1fr) 108px;gap:8px}
+ .market-watchlist{padding-left:7px;gap:3px}
+ .market-watch-item{padding:5px 7px;gap:4px}
+ .market-watch-item strong{font-size:11px}
+ .market-watchlist-label{font-size:9px;padding:0 0 3px}
+ .market-selected-head{flex-direction:column;gap:5px}
+ .market-selected-head h4{font-size:15px;margin-bottom:2px}
+ .market-selected-head>div:first-child>small{display:none}
+ .market-selected-head>div:last-child{text-align:left}
+ .market-selected-head b{font-size:20px}
+ .market-selected-head span{font-size:11px}
+ .market-dashboard .stock-range-tabs button{font-size:10px;padding:5px}
+ .market-dashboard .quote-chart-detail .stock-chart{height:clamp(110px,16dvh,160px)}
+ .market-dashboard .quote-chart-detail .quote-range{font-size:8px;flex-wrap:wrap;gap:3px}
+ .market-dashboard .quote-chart-detail .quote-rounds{font-size:8px}
+ .market-dashboard .market-guide{font-size:10px;margin-bottom:10px}
+}

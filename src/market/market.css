@@ -1,0 +1,66 @@
+.stock-market{min-width:0}
+.stock-market .market-up,.market-strip .market-up{color:var(--market-up)}
+.stock-market .market-down,.market-strip .market-down{color:var(--market-down)}
+.stock-market .market-flat,.market-strip .market-flat{color:var(--market-flat)}
+.market-strip>span:focus-visible{outline:1px solid var(--brass);outline-offset:3px}
+.market-legend{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:10px 0 6px;font-size:10px;color:var(--market-muted)}
+.market-guide{margin:0 0 16px;color:var(--market-muted);font-size:10px;line-height:1.7}
+.quote-chart{position:relative;margin:10px 0 11px;min-width:0}
+.stock-chart{display:block;width:100%;height:64px;overflow:visible;touch-action:pan-y;cursor:crosshair}
+.stock-chart:focus-visible{outline:1px solid var(--brass);outline-offset:3px}
+.market-gridline{stroke:var(--market-grid);stroke-width:1;vector-effect:non-scaling-stroke}
+.market-baseline{stroke:var(--market-baseline);stroke-width:1;stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.market-baseline-label{fill:var(--market-muted);font-family:var(--font-num);font-size:8px;paint-order:stroke;stroke:var(--market-chart-bg);stroke-width:2px;stroke-linejoin:round}
+.market-line{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.quote-latest{fill:currentColor;stroke:var(--market-chart-bg);stroke-width:1}
+.quote-pulse{fill:none;stroke:currentColor;stroke-width:1;opacity:.35;animation:market-dot-pulse 1.8s ease-out infinite}
+.quote-crosshair line{stroke:var(--market-baseline);stroke-dasharray:2 2;vector-effect:non-scaling-stroke}
+.quote-crosshair circle{fill:currentColor;stroke:var(--market-chart-bg);stroke-width:1.5}
+.quote-tooltip{position:absolute;top:-7px;z-index:2;transform:translateX(-50%);padding:5px 7px;color:#fff9eb;background:#304c3f;border:1px solid #7d8d72;box-shadow:0 3px 9px #0002;border-radius:2px;pointer-events:none;white-space:nowrap;font-size:9px;font-family:var(--font-num);max-width:calc(100% - 4px)}
+.quote-range{display:flex;justify-content:space-between;gap:7px;margin-top:5px;color:var(--market-muted);font:8px var(--font-num);white-space:nowrap}
+.stock-dividend{margin:7px 0 0;color:var(--market-muted);font-size:8.5px;line-height:1.6}
+.stock-order{margin-top:12px;padding:11px 9px;background:var(--market-order);border:1px solid var(--market-grid);min-width:0}
+.stock-order-head{display:flex;align-items:center;justify-content:space-between;color:var(--market-flat);font-size:10px}
+.stock-order-head button{display:flex;align-items:center;justify-content:center;padding:4px;border:0;background:transparent;color:inherit}
+.stock-quantity{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:9px 0!important;color:var(--market-muted);font-size:10px}
+.stock-quantity input{width:86px;min-width:0;margin:0;padding:6px 7px;font-size:12px}
+.stock-quick{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+.stock-quick button{flex:1;padding:5px 3px;color:var(--market-flat);background:transparent;border:1px solid var(--market-baseline);border-radius:2px;font-size:9px;white-space:nowrap}
+.stock-estimate{margin:0;font-size:9px;color:var(--market-muted);font-family:var(--font-num)}
+.stock-estimate>div{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin:6px 0}
+.stock-estimate dt{min-width:0}.stock-estimate dd{margin:0;text-align:right;white-space:nowrap}
+.stock-estimate .stock-estimate-total{padding:7px 0;border-top:1px solid var(--market-grid);border-bottom:1px solid var(--market-grid);color:var(--market-flat);font-size:12px}
+.stock-order .stock-confirm{display:block;width:100%;padding:9px 5px;margin-top:10px;background:#496a54;border:1px solid #66826a;color:#fff8e8;border-radius:2px;font-size:11px}
+.stock-order-note{display:block;margin-top:8px;font-size:8px;color:var(--market-muted);line-height:1.6}
+.stock-order-error{font-size:10px;color:var(--coral);line-height:1.6;margin:8px 0}
+@keyframes market-dot-pulse{0%{stroke-width:2;opacity:.7}100%{stroke-width:6;opacity:0}}
+@media(max-width:759px){.stock-chart{height:50px}.market-legend,.market-guide{font-size:11px}.quote-range{font-size:9px}.stock-holding,.stock-dividend{font-size:10px}.stock-order{padding:12px}.stock-estimate{font-size:11px}.stock-order-note{font-size:10px}.stock-quick button{font-size:11px;min-height:30px}.stock-quantity{font-size:11px}.stock-report{font-size:10px}.stock-report strong{font-size:11px}.stock-report-card{padding:10px}.stock-report-card strong{font-size:13px}.quote-empty{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.quote-pulse{animation:none;opacity:.3}}
+
+.stock-detail-link{padding:0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.stock-detail-open{padding:3px 0;border:0;background:transparent;color:var(--market-muted);font-size:10px;cursor:pointer}
+.stock-report{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:4px 0 7px;padding:5px 7px;border-left:2px solid currentColor;background:var(--market-order);font-size:9px;line-height:1.5}
+.stock-report span{color:var(--market-muted)}
+.stock-report strong{font:600 10px var(--font-num);white-space:nowrap}
+.stock-report-card{margin:14px 0 4px;padding:10px 12px;border:1px solid var(--market-grid);border-left:3px solid currentColor;background:var(--market-order)}
+.stock-report-card>div{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.stock-report-card small{color:var(--market-muted);font-size:10px}
+.stock-report-card strong{font:600 14px var(--font-num)}
+.stock-report-card p{margin:5px 0 0!important;color:var(--market-muted)!important;font-size:11px;line-height:1.6}
+.stock-order-wrap{scroll-margin-block:18px}
+.market-engine-note{padding:9px;background:var(--market-order);font-size:11px;line-height:1.6}
+.stock-details-backdrop{position:fixed;inset:0;z-index:180;display:flex;align-items:center;justify-content:center;padding:24px;background:#14271ed9;backdrop-filter:blur(5px)}
+.stock-details{width:min(860px,100%);max-height:92dvh;overflow:auto;background:var(--market-chart-bg);color:var(--market-flat);border:1px solid var(--market-baseline);box-shadow:0 24px 80px #0006;border-radius:5px;min-width:0}
+.stock-details-header{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:20px 25px;border-bottom:1px solid var(--market-grid);background:var(--market-chart-bg)}
+.stock-details-header h2{margin:4px 0 0;font-size:24px}.stock-details-header small{font-size:10px;color:var(--market-muted)}
+.stock-details-header button{display:flex;align-items:center;justify-content:center;padding:8px;background:transparent;border:1px solid var(--market-grid);color:inherit;cursor:pointer}
+.stock-details-body{padding:22px 25px;font-size:13px;line-height:1.7}.stock-details-body>p{margin:10px 0;color:var(--market-muted)}
+.stock-details-body h3{font-size:14px;margin:22px 0 8px}.stock-details-quote{display:flex;align-items:baseline;gap:15px;flex-wrap:wrap}.stock-details-quote strong{font:32px var(--font-num)}.stock-details-quote small{font-size:12px;color:var(--market-muted)}
+.stock-range-tabs{display:flex;gap:8px;margin:20px 0}.stock-range-tabs button{padding:7px 14px;border:1px solid var(--market-grid);background:transparent;color:inherit;cursor:pointer}.stock-range-tabs button[aria-pressed=true]{background:var(--market-order);border-color:var(--market-baseline);font-weight:700}
+.quote-chart-detail .stock-chart{height:240px}.quote-chart-detail .market-baseline-label{font-size:12px}.quote-chart-detail .quote-tooltip{font-size:11px;white-space:normal;text-align:center;width:max-content;max-width:90%;left:50%!important}
+.quote-rounds{display:flex;justify-content:space-between;color:var(--market-muted);font:10px var(--font-num);margin:6px 0}.quote-rounds-single{justify-content:flex-start}.quote-empty{margin:2px 0 0;color:var(--market-muted);font-size:9px;line-height:1.5;text-align:center}.quote-chart-detail .quote-range{font-size:11px}
+.stock-event-marker{fill:var(--market-flat);font-size:12px;paint-order:stroke;stroke:var(--market-chart-bg);stroke-width:2px}.stock-event-legend{font-size:11px}
+.stock-details-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0;padding:15px;background:var(--market-order)}.stock-details-stats dt{font-size:11px;color:var(--market-muted)}.stock-details-stats dd{margin:3px 0 0;font:14px var(--font-num)}
+.stock-details .stock-actions button{padding:10px;font-size:13px;cursor:pointer}.stock-details .stock-order-note,.stock-details .stock-dividend{font-size:11px}.stock-details .stock-estimate{font-size:12px}.stock-details .stock-estimate-total{font-size:16px}.stock-details .stock-quick button{font-size:12px}.stock-details .stock-order{padding:16px}.stock-details .stock-order-head{font-size:13px}
+.stock-event-list{list-style:none;padding:0;margin:0}.stock-event-list li{padding:12px 0;border-bottom:1px solid var(--market-grid)}.stock-event-list small{display:block;color:var(--market-muted);font-size:10px}.stock-event-list strong{display:block;font-size:13px}.stock-event-list p{margin:4px 0 0;color:var(--market-muted);font-size:12px}
+@media(max-width:759px){.stock-details-backdrop{padding:8px}.stock-details{max-height:96dvh}.stock-details-header{padding:14px}.stock-details-body{padding:16px 14px}.stock-details-header h2{font-size:21px}.stock-range-tabs{gap:5px}.stock-range-tabs button{padding:7px 8px;font-size:11px}.quote-chart-detail .stock-chart{height:180px}.quote-chart-detail .market-baseline-label{font-size:17px}.quote-chart-detail .stock-event-marker{font-size:18px}.stock-details-stats{padding:10px;gap:12px 7px}.stock-details-stats dd{font-size:12px}.stock-details .stock-estimate{font-size:11px}.stock-details-quote strong{font-size:27px}}

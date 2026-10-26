@@ -1,0 +1,97 @@
+.mobile-global-menu,.mobile-view-toggle,.mobile-stock-switch{display:none}
+/* Chat unread reminder */
+.icon-button{position:relative}
+.chat-unread-badge{position:absolute;top:-3px;right:-3px;z-index:2;display:grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border:1px solid #fbf6ec;border-radius:999px;background:#c15a42;color:#fff;font:600 8px/1 var(--font-num);font-style:normal;box-shadow:0 2px 8px rgba(60,20,12,.3);pointer-events:none;animation:chatUnreadPulse 1.8s ease-in-out infinite}
+.chat-button.has-unread{color:#f1e2cc;border-color:rgba(210,160,75,.46);background:rgba(210,160,75,.08)}
+.chat-button.has-unread>span{color:#e0896f;font-weight:700}
+.dock-badge.chat-dock-badge{width:auto;min-width:15px;height:15px;padding:0 3px;display:grid;place-items:center;font:600 8px/1 var(--font-num);font-style:normal;color:#fff;background:#c15a42;animation:chatUnreadPulse 1.8s ease-in-out infinite}
+@keyframes chatUnreadPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(193,90,66,.35)}50%{transform:scale(1.08);box-shadow:0 0 0 4px rgba(193,90,66,0)}}
+.reduce-motion .chat-unread-badge,.reduce-motion .chat-dock-badge,.performance-mode .chat-unread-badge,.performance-mode .chat-dock-badge{animation:none}
+@media(prefers-reduced-motion:reduce){.chat-unread-badge,.chat-dock-badge{animation:none}}
+/* Optional low-power profile; also suppresses the most expensive DOM particles. */
+.performance-mode .money-rain,
+.performance-mode .victory-confetti,
+.performance-mode .victory-coin,
+.performance-mode .casino-particles{display:none}
+.performance-mode .settlement-bill,
+.performance-mode .bill-line,
+.performance-mode .bill-stamp{animation:none}
+@media(max-width:759px){
+  /* Keep the board clear; secondary actions live in the existing menu. */
+  .in-room .topbar{padding-inline:12px;gap:8px}
+  .in-room .top-center{display:none}
+  .in-room .top-actions{margin-left:auto;gap:6px}
+  .in-room .top-actions>.icon-button:not([aria-label="更换角色皮肤"]){display:none}
+  .mobile-global-menu{display:block;order:2}
+  .in-room .top-actions .icon-button{width:44px;height:44px;min-height:44px}
+  .in-room .brand small{display:none}
+  .in-room .brand{font-size:17px}
+  .in-room .stage-hud-left{top:10px;left:10px}
+  .in-room .stage-hud-right{top:10px;right:10px;gap:8px}
+  .in-room .player-hud,.in-room .portfolio-hud{min-height:50px;padding:8px 10px}
+  .in-room .hud-copy b{font-size:12px}
+  .in-room .hud-copy small,.in-room .portfolio-hud small{font-size:10px}
+  .in-room .stage-tools{display:none}
+  .mobile-view-toggle{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 12px;border:1px solid #d9cfbb;border-radius:12px;background:#faf5ecee;color:#455849;font-size:12px;pointer-events:auto}
+  .in-room .view-tools-open .stage-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;max-width:none;width:192px;padding:8px;position:absolute;right:0;top:108px;box-shadow:0 12px 30px #14251e33}
+  .in-room .view-tools-open .stage-tools>button{min-height:42px;height:auto;width:auto;padding:8px;font-size:12px}
+  .in-room .game-time{left:10px;right:auto;top:70px;max-width:calc(100vw - 110px)}
+  .in-room .match-time.is-collapsed{padding:0 10px}
+  .in-room .match-time-toggle{min-height:40px}
+  .in-room .match-time.is-collapsed .match-time-toggle strong{font-size:11px}
+  .in-room .board-area>.action-bar{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));padding:12px;gap:9px;border-radius:18px}
+  .in-room .action-bar .more-action{display:none}
+  .in-room .action-bar .action-info{gap:5px}
+  .in-room .action-bar .turn-copy h3{font-size:13px}
+  .in-room .action-bar .turn-copy p{font-size:11px}
+  .in-room .action-bar .cashflow-summary{font-size:11px;min-height:24px;justify-content:space-between}
+  .in-room .action-bar .cashflow-summary>span:nth-child(2){display:none}
+  .in-room .action-bar .primary.main-cta{min-height:46px;font-size:14px}
+  .in-room .action-bar .secondary,.in-room .action-bar .action-controls>.secondary{min-height:44px;font-size:12px}
+  .in-room .action-bar .shortcut{font-size:12px;min-height:40px;display:flex;align-items:center}
+  .in-room .property-popover{top:124px;max-height:calc(100dvh - 330px);overflow-y:auto}
+  /* Asset pages use a full sheet instead of nested, space-consuming cards. */
+  .right-rail.floating-drawer,.right-rail.floating-drawer.market-drawer{inset:58px 0 0;width:100%;height:auto;border-radius:18px 18px 0 0;border-bottom:0}
+  .right-rail.floating-drawer .drawer-head{padding:10px 16px}
+  .floating-drawer .drawer-head .icon-button{width:40px;height:40px}
+  .right-rail.floating-drawer .portfolio-head{padding:10px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .right-rail.floating-drawer .portfolio-head h3{font-size:24px;margin:0}
+  .right-rail .portfolio-head>.credit-badge,.right-rail .portfolio-head>span:not(.credit-badge){display:none}
+  .right-rail.floating-drawer .portfolio-head .cash-line{position:static;padding:0;margin:0;font-size:12px}
+  .right-rail.floating-drawer .tabs{padding:0 8px}
+  .right-rail.floating-drawer .tabs button{min-height:46px;font-size:13px}
+  .right-rail.floating-drawer .panel-content,.right-rail.floating-drawer.market-drawer .panel-content{padding:16px;padding-bottom:max(16px,env(safe-area-inset-bottom))}
+  .mobile-stock-switch{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:44px;gap:8px;padding:8px 12px;margin:0 0 14px;border:1px solid var(--market-baseline);border-radius:10px;color:var(--market-flat);background:var(--market-order);font-size:13px}
+  .mobile-stock-switch span{font-size:11px;color:var(--market-muted)}
+  .market-workspace{display:block;position:relative}
+  .market-watchlist{display:none}
+  .stock-list-open .market-watchlist{display:flex;position:absolute;right:0;top:0;width:min(220px,85%);z-index:10;padding:8px;border:1px solid var(--market-baseline);border-radius:12px;background:var(--market-chart-bg);box-shadow:0 12px 32px #14251e33}
+  .market-watchlist-label{padding:8px;font-size:11px}
+  .market-watch-item{flex-direction:row;justify-content:space-between;align-items:center;min-height:44px;padding:10px;gap:8px}
+  .market-watch-item strong{font-size:13px}.market-watch-item span{font-size:12px}
+  .market-selected-head{flex-direction:row;gap:10px}
+  .market-selected-head>div:last-child{text-align:right}
+  .market-selected-head h4{font-size:19px}
+  .market-selected-head>div:first-child>small{display:block;font-size:11px}
+  .market-selected-head b{font-size:24px}
+  .market-selected-head span{font-size:12px}
+  .market-dashboard .stock-range-tabs{margin:14px 0 10px;gap:8px}
+  .market-dashboard .stock-range-tabs button{min-height:40px;padding:8px 12px;font-size:12px;flex:1}
+  .market-dashboard .quote-chart-detail .stock-chart{height:clamp(130px,23dvh,230px)}
+  .market-dashboard .quote-chart-detail .quote-range,.market-dashboard .quote-chart-detail .quote-rounds{font-size:10px}
+  .market-dashboard .market-guide,.market-dashboard>.section-label{display:none}
+  .market-dashboard .stock-actions{gap:8px;flex-wrap:wrap}
+  .market-dashboard .stock-actions button{font-size:12px;min-height:44px}
+  .market-dashboard .stock-actions button:last-child{flex-basis:100%;min-height:40px}
+  .market-dashboard .stock-holding{font-size:12px;line-height:1.7}
+  .market-dashboard .stock-report{font-size:11px;padding:8px}
+  .market-dashboard .stock-report strong{font-size:11px}
+  .more-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px}
+  .more-menu>.secondary{width:100%;margin:0;min-height:48px;font-size:13px}
+  .more-menu>.feedback-settings,.more-menu>.disabled-reason{grid-column:1/-1}
+}
+@media(max-width:759px) and (max-height:740px){
+  .market-dashboard .quote-chart-detail .stock-chart{height:125px}
+  .market-dashboard .stock-actions button:last-child{flex-basis:auto}
+  .right-rail.floating-drawer .panel-content,.right-rail.floating-drawer.market-drawer .panel-content{padding:12px}
+}

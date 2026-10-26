@@ -1,0 +1,16 @@
+node_modules/
+dist/
+data/
+*.log
+artifacts/
+.npm-cache/
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db

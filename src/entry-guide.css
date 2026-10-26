@@ -1,0 +1,18 @@
+.landing .entry-setup-hint{margin:0;padding:10px 12px;border-left:3px solid #b58b50;border-radius:0 8px 8px 0;background:#e9dfcc70;color:#63705e;font-size:12px;line-height:1.75}
+.entry-jobs{border:0;margin:0;padding:0;min-width:0}
+.entry-jobs legend{padding:0;margin-bottom:9px;color:#455642;font-size:12px;font-weight:600}
+.entry-jobs legend span{margin-left:10px;color:#827763;font-size:10px;font-weight:400}
+.entry-job-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.landing .entry-card .entry-job-choice{display:flex;flex-direction:column;align-items:stretch;position:relative;gap:5px;margin:0;padding:10px;border:1px solid #d5c9b4;border-radius:9px;background:#fffaf185;cursor:pointer;min-width:0}
+.landing .entry-card .entry-job-choice strong{padding-right:20px;color:#344a38;font-size:13px;line-height:1.5}
+.landing .entry-card .entry-job-choice>span{color:#756d5d;font-size:11px;line-height:1.65;letter-spacing:0}
+.landing .entry-card .entry-job-choice input{position:absolute;right:10px;top:11px;appearance:auto;width:15px;height:15px;min-height:0;margin:0;padding:0;accent-color:#48644d;box-shadow:none}
+.landing .entry-card .entry-job-choice:has(input:checked){background:#e4ecdf;border-color:#658262;box-shadow:inset 0 0 0 1px #658262}
+.landing .entry-card .entry-job-choice:has(input:focus-visible){outline:2px solid #b58b50;outline-offset:3px}
+@media(min-width:760px){.landing .entry-layer{width:min(440px,calc(100vw - 40px))}}
+@media(max-width:759px){
+ .landing .entry-card{gap:12px}
+ .landing .entry-card .entry-job-choice{padding:9px;gap:4px}
+ .landing .entry-card .entry-job-choice>span{font-size:11px}
+ .landing .entry-setup-hint{font-size:12px}
+}

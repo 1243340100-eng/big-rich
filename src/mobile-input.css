@@ -1,0 +1,16 @@
+/* Safari zooms focused small text fields. Cover phones in both orientations and
+   touch tablets; keep the desktop typography and the user's pinch zoom. */
+@media (max-width: 950px), (any-pointer: coarse) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']):not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='image']),
+  textarea,
+  select,
+  [contenteditable='true'] {
+    /* Component styles also set small font sizes, including lazy-loaded panels. */
+    font-size: max(16px, 1em) !important;
+  }
+
+  .chat-form select {
+    width: 104px;
+    padding-inline: 7px;
+  }
+}
