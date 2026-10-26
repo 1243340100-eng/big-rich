@@ -1,0 +1,16 @@
+.git
+node_modules
+dist
+data
+artifacts
+.npm-cache
+*.log
+.env
+.env.*
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
